@@ -14,35 +14,23 @@ services:
           - nginx-us
           - nginx-default
           - nginx-fallback
-        env_file:
-            - .env
 
     nginx-uk:
         build: ./nginx-uk
         restart: always
-        env_file:
-            - .env
 
     nginx-us2:
         build: ./nginx-us2
         restart: always
-        env_file:
-            - .env
 
     nginx-us:
         build: ./nginx-us
         restart: always
-        env_file:
-            - .env
 
     nginx-default:
         build: ./nginx-default
         restart: always
-        env_file:
-            - .env
 
     nginx-fallback:
         build: ./nginx-fallback
         restart: always
-        env_file:
-            - .env
