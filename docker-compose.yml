@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+    my-nginx:
+        build: ./my-nginx
+        container_name: my-nginx
+        ports: 
+          - 8080:8080
+          - 8081:8081
+        restart: always
+        links:
+          - nginx-uk
+          - nginx-us2
+          - nginx-us
+          - nginx-default
+          - nginx-fallback
+        env_file:
+            - .env
+
+    nginx-uk:
+        build: ./nginx-uk
+        restart: always
+        env_file:
+            - .env
+
+    nginx-us2:
+        build: ./nginx-us2
+        restart: always
+        env_file:
+            - .env
+
+    nginx-us:
+        build: ./nginx-us
+        restart: always
+        env_file:
+            - .env
+
+    nginx-default:
+        build: ./nginx-default
+        restart: always
+        env_file:
+            - .env
+
+    nginx-fallback:
+        build: ./nginx-fallback
+        restart: always
+        env_file:
+            - .env
